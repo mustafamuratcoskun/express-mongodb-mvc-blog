@@ -1,0 +1,33 @@
+{{> _flash }}
+
+{{#each posts}}
+
+<div class="card mb-3">
+    <div class="card-header d-flex justify-content-between">
+
+        <h5 class="d-inline">Posted at {{createdAt}}</h5>
+
+        <form method="POST" action="/posts/delete/{{_id}}?_method=DELETE">
+
+            <button type="submit">
+                <i class="far fa-trash-alt"></i>
+            </button>
+        </form>
+
+    </div>
+    <div class="card-body">
+
+        <h4 class="card-title"> {{title}}</h4>
+        <p class="card-text">{{body}}</p>
+        <a href="/posts/edit/{{_id}}" class="btn btn-primary btn-block mb-2">Edit</a>
+
+
+    </div>
+
+</div>
+{{else }}
+
+<div class="alert alert-danger">
+    There is no post!
+</div>
+{{/each}}
